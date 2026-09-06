@@ -11,8 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as LadiesRouteImport } from './routes/ladies'
 import { Route as LocationRouteImport } from './routes/location'
 import { Route as MembershipRouteImport } from './routes/membership'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TimingsRouteImport } from './routes/timings'
 import { Route as TrainersRouteImport } from './routes/trainers'
@@ -27,6 +32,21 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LadiesRoute = LadiesRouteImport.update({
+  id: '/ladies',
+  path: '/ladies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationRoute = LocationRouteImport.update({
   id: '/location',
   path: '/location',
@@ -35,6 +55,16 @@ const LocationRoute = LocationRouteImport.update({
 const MembershipRoute = MembershipRouteImport.update({
   id: '/membership',
   path: '/membership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -56,8 +86,13 @@ const TrainersRoute = TrainersRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/ladies': typeof LadiesRoute
   '/location': typeof LocationRoute
   '/membership': typeof MembershipRoute
+  '/register': typeof RegisterRoute
+  '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/timings': typeof TimingsRoute
   '/trainers': typeof TrainersRoute
@@ -65,8 +100,13 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/ladies': typeof LadiesRoute
   '/location': typeof LocationRoute
   '/membership': typeof MembershipRoute
+  '/register': typeof RegisterRoute
+  '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/timings': typeof TimingsRoute
   '/trainers': typeof TrainersRoute
@@ -75,8 +115,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/ladies': typeof LadiesRoute
   '/location': typeof LocationRoute
   '/membership': typeof MembershipRoute
+  '/register': typeof RegisterRoute
+  '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/timings': typeof TimingsRoute
   '/trainers': typeof TrainersRoute
@@ -86,8 +131,13 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/contact'
+    | '/events'
+    | '/ladies'
     | '/location'
     | '/membership'
+    | '/register'
+    | '/reviews'
     | '/services'
     | '/timings'
     | '/trainers'
@@ -95,8 +145,13 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/contact'
+    | '/events'
+    | '/ladies'
     | '/location'
     | '/membership'
+    | '/register'
+    | '/reviews'
     | '/services'
     | '/timings'
     | '/trainers'
@@ -104,8 +159,13 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/contact'
+    | '/events'
+    | '/ladies'
     | '/location'
     | '/membership'
+    | '/register'
+    | '/reviews'
     | '/services'
     | '/timings'
     | '/trainers'
@@ -114,8 +174,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  EventsRoute: typeof EventsRoute
+  LadiesRoute: typeof LadiesRoute
   LocationRoute: typeof LocationRoute
   MembershipRoute: typeof MembershipRoute
+  RegisterRoute: typeof RegisterRoute
+  ReviewsRoute: typeof ReviewsRoute
   ServicesRoute: typeof ServicesRoute
   TimingsRoute: typeof TimingsRoute
   TrainersRoute: typeof TrainersRoute
@@ -137,6 +202,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ladies': {
+      id: '/ladies'
+      path: '/ladies'
+      fullPath: '/ladies'
+      preLoaderRoute: typeof LadiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/location': {
       id: '/location'
       path: '/location'
@@ -149,6 +235,20 @@ declare module '@tanstack/react-router' {
       path: '/membership'
       fullPath: '/membership'
       preLoaderRoute: typeof MembershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -178,8 +278,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  EventsRoute: EventsRoute,
+  LadiesRoute: LadiesRoute,
   LocationRoute: LocationRoute,
   MembershipRoute: MembershipRoute,
+  RegisterRoute: RegisterRoute,
+  ReviewsRoute: ReviewsRoute,
   ServicesRoute: ServicesRoute,
   TimingsRoute: TimingsRoute,
   TrainersRoute: TrainersRoute,
