@@ -51,7 +51,7 @@ export function RegistrationForm({
       id_number: fd.get("id_number"),
       address: fd.get("address"),
       gender: gender ?? fd.get("gender"),
-      plan: showPlan ? (fd.get("plan") as string) || undefined : undefined,
+      plan: showPlan ? ((fd.get("plan") as string) || undefined) : undefined,
     });
 
     if (!parsed.success) {
@@ -63,7 +63,7 @@ export function RegistrationForm({
 
     setErrors({});
     setLoading(true);
-    const { error } = await supabase.from("registrations").insert({ ...parsed.data, kind });
+    const { error } = await supabase.from("registrations").insert({ ...parsed.data, plan: parsed.data.plan ?? null, kind });
     setLoading(false);
 
     if (error) {
@@ -160,7 +160,7 @@ function Field({
   children,
 }: {
   label: string;
-  error?: string;
+  error?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
