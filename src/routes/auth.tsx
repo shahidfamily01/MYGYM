@@ -26,7 +26,7 @@ function AuthPage() {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [loading, setLoading] = useState(false);
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const email = String(fd.get("email") ?? "").trim();
@@ -39,7 +39,7 @@ function AuthPage() {
     if (mode === "signin") {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       setLoading(false);
-      if (error) return toast.error(error.message);
+      if (error) { toast.error(error.message); return; }
       navigate({ to: "/admin" });
     } else {
       const { data, error } = await supabase.auth.signUp({
@@ -48,8 +48,8 @@ function AuthPage() {
         options: { emailRedirectTo: window.location.origin + "/admin" },
       });
       setLoading(false);
-      if (error) return toast.error(error.message);
-      if (!data.session) return toast.success("Check your email to confirm the account.");
+      if (error) { toast.error(error.message); return; }
+      if (!data.session) { toast.success("Check your email to confirm the account."); return; }
       navigate({ to: "/admin" });
     }
   }
