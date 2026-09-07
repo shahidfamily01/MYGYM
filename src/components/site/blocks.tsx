@@ -122,23 +122,42 @@ export function ReviewsBlock() {
     { label: "TikTok", href: GYM.socials.tiktok },
     { label: "Instagram", href: GYM.socials.instagram },
     { label: "Facebook", href: GYM.socials.facebook },
-  ];
+  ].filter((i) => i.href);
+
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
-      {items.map((i) => (
-        <a
-          key={i.label}
-          href={i.href}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="surface-card rounded-sm p-6 transition-colors hover:border-primary"
-        >
-          <h3 className="text-lg">{i.label}</h3>
-          <p className="mt-2 text-sm text-muted-foreground">
-            See what members say — and leave your own review.
-          </p>
-        </a>
-      ))}
+    <div className="space-y-8">
+      <div className="grid gap-4 sm:grid-cols-3">
+        {items.map((i) => (
+          <a
+            key={i.label}
+            href={i.href}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="surface-card rounded-sm p-6"
+          >
+            <h3 className="text-lg">{i.label}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              See what members post — and leave your own review.
+            </p>
+          </a>
+        ))}
+      </div>
+
+      <div className="surface-card rounded-sm p-4 sm:p-6">
+        <h3 className="text-lg">Latest on TikTok</h3>
+        <p className="mt-1 text-xs text-muted-foreground">
+          This feed updates automatically whenever a new video is posted.
+        </p>
+        <div className="mt-4 overflow-hidden rounded-sm">
+          <iframe
+            title="Apex Fit Club latest TikTok posts"
+            src="https://www.tiktok.com/embed/@apexfitclub_official"
+            className="h-[560px] w-full border-0"
+            loading="lazy"
+            allow="encrypted-media"
+          />
+        </div>
+      </div>
     </div>
   );
 }

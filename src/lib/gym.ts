@@ -15,9 +15,9 @@ export const GYM = {
     "1st Floor, Madina Tower, Near Punjab Cash & Carry, Range Road, Rawalpindi (above Meezan Bank, Range Road)",
   mapQuery: "Meezan Bank Range Road Rawalpindi Madina Tower",
   socials: {
-    tiktok: "https://www.tiktok.com/search?q=apex%20fit%20club%20rawalpindi",
-    instagram: "https://www.instagram.com/explore/search/keyword/?q=apex%20fit%20club",
-    facebook: "https://www.facebook.com/search/top?q=apex%20fit%20club%20rawalpindi",
+    tiktok: "https://www.tiktok.com/@apexfitclub_official",
+    instagram: "",
+    facebook: "",
   },
 } as const;
 
@@ -38,12 +38,25 @@ export const services = [
   { title: "Yoga Classes", desc: "Flexibility, breathing and balance sessions each week." },
 ] as const;
 
-export const trainers = [
+export type Trainer = {
+  name: string;
+  role: string;
+  experience: string;
+  specialties: string[];
+  bio: string;
+  whatsapp: string;
+  phoneDisplay: string;
+  photo: string | null;
+  owner: boolean;
+};
+
+export const trainers: Trainer[] = [
   {
     name: "Najam Ali Tariq",
-    role: "Owner & Head Trainer",
+    role: "Owner",
     experience: "10 years experience",
-    bio: "Founder of Apex Fit Club. Specialises in strength building, body recomposition and coaching beginners into serious lifters.",
+    specialties: ["CrossFit", "Strength", "Full Body Building Training"],
+    bio: "Founder of Apex Fit Club. Builds complete transformation plans — strength, conditioning and full body building coaching.",
     whatsapp: "923305966918",
     phoneDisplay: "0330-5966918",
     photo: najamAsset.url,
@@ -51,9 +64,10 @@ export const trainers = [
   },
   {
     name: "Adeel",
-    role: "Trainer",
+    role: "Manager",
     experience: "7 years experience",
-    bio: "Strength and conditioning coach focused on powerlifting technique, progressive overload and injury-free training.",
+    specialties: ["CrossFit", "Cardio", "Strength", "Kickboxing Specialist"],
+    bio: "Manages the training floor and coaches kickboxing, CrossFit and conditioning alongside strength programming.",
     whatsapp: "923335210375",
     phoneDisplay: "0333-5210375",
     photo: adeelAsset.url,
@@ -62,14 +76,26 @@ export const trainers = [
   {
     name: "Fasih",
     role: "Trainer",
-    experience: "5–7 years experience",
-    bio: "Cardio, CrossFit and fat-loss specialist. Builds conditioning programmes for members of every fitness level.",
+    experience: "5 years experience",
+    specialties: [],
+    bio: "Floor trainer working one-on-one with members on technique, routine planning and steady progress.",
     whatsapp: "923224052167",
     phoneDisplay: "0322-4052167",
     photo: fasihAsset.url,
     owner: false,
   },
-] as const;
+  {
+    name: "Arslan",
+    role: "Trainer",
+    experience: "",
+    specialties: ["CrossFit", "Strength"],
+    bio: "CrossFit and strength coach for members who want power, conditioning and clean lifting form.",
+    whatsapp: "923150428249",
+    phoneDisplay: "0315-0428249",
+    photo: null,
+    owner: false,
+  },
+];
 
 export const plans = [
   { name: "Admission Fee", price: 1000, note: "One-time, on joining" },
