@@ -21,7 +21,7 @@ export type Database = {
           full_name: string
           gender: string
           id: string
-          id_number: string
+          id_number: string | null
           id_type: string
           kind: string
           phone: string
@@ -33,7 +33,7 @@ export type Database = {
           full_name: string
           gender: string
           id?: string
-          id_number: string
+          id_number?: string | null
           id_type?: string
           kind?: string
           phone: string
@@ -45,7 +45,7 @@ export type Database = {
           full_name?: string
           gender?: string
           id?: string
-          id_number?: string
+          id_number?: string | null
           id_type?: string
           kind?: string
           phone?: string
