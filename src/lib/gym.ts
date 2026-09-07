@@ -15,9 +15,9 @@ export const GYM = {
     "1st Floor, Madina Tower, Near Punjab Cash & Carry, Range Road, Rawalpindi (above Meezan Bank, Range Road)",
   mapQuery: "Meezan Bank Range Road Rawalpindi Madina Tower",
   socials: {
-    tiktok: "https://www.tiktok.com/search?q=apex%20fit%20club%20rawalpindi",
-    instagram: "https://www.instagram.com/explore/search/keyword/?q=apex%20fit%20club",
-    facebook: "https://www.facebook.com/search/top?q=apex%20fit%20club%20rawalpindi",
+    tiktok: "https://www.tiktok.com/@apexfitclub_official",
+    instagram: "",
+    facebook: "",
   },
 } as const;
 
