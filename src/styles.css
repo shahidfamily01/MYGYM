@@ -106,7 +106,9 @@
   }
 
   button,
-  a {
+  a[data-slot="button"],
+  a[href^="http"],
+  a[href^="mailto"] {
     transition:
       box-shadow 0.25s ease,
       color 0.2s ease,
@@ -114,12 +116,16 @@
   }
 
   button:hover,
-  a:hover {
+  a[data-slot="button"]:hover,
+  a[href^="http"]:hover,
+  a[href^="mailto"]:hover {
     box-shadow: var(--shadow-white-glow);
   }
 
   button:active,
-  a:active {
+  a[data-slot="button"]:active,
+  a[href^="http"]:active,
+  a[href^="mailto"]:active {
     box-shadow: var(--shadow-white-glow-strong);
   }
 
