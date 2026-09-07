@@ -20,9 +20,10 @@ const schema = z.object({
   id_number: z
     .string()
     .trim()
-    .min(10, "Please enter a valid CNIC / B-Form number")
     .max(20)
-    .regex(/^[0-9-]+$/, "Only digits and dashes are allowed"),
+    .optional()
+    .transform((v) => (v ? v : undefined))
+    .refine((v) => !v || /^[0-9-]{10,20}$/.test(v), "Please enter a valid CNIC / B-Form number"),
   address: z.string().trim().min(5, "Please enter your home address").max(200),
   gender: z.enum(["male", "female"]),
   plan: z.string().trim().max(60).optional(),
@@ -63,13 +64,19 @@ export function RegistrationForm({
 
     setErrors({});
     setLoading(true);
-    const { error } = await supabase.from("registrations").insert({ ...parsed.data, plan: parsed.data.plan ?? null, kind });
+    const { error } = await supabase.from("registrations").insert({
+      ...parsed.data,
+      id_number: parsed.data.id_number ?? null,
+      plan: parsed.data.plan ?? null,
+      kind,
+    });
     setLoading(false);
 
     if (error) {
       toast.error("We couldn't send your registration. Please try again.");
       return;
     }
+    window.dispatchEvent(new CustomEvent("apex-registration"));
     setDone(true);
     toast.success("Registration received. Our team will contact you shortly.");
   }
@@ -106,8 +113,8 @@ export function RegistrationForm({
             <option value="bform">B-Form (no CNIC)</option>
           </select>
         </Field>
-        <Field label="CNIC / B-Form Number" error={errors["id_number"]}>
-          <Input name="id_number" maxLength={20} placeholder="61101-1234567-1" required />
+        <Field label="CNIC / B-Form Number (optional)" error={errors["id_number"]}>
+          <Input name="id_number" maxLength={20} placeholder="61101-1234567-1" />
         </Field>
       </div>
 
