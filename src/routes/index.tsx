@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 import { MessageCircle } from "lucide-react";
 
-import { supabase } from "@/integrations/supabase/client";
+import { MemberCounter } from "@/components/site/MemberCounter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { EntryGate } from "@/components/site/EntryGate";
@@ -38,15 +37,6 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { data: memberCount } = useQuery({
-    queryKey: ["member-count"],
-    queryFn: async () => {
-      const { data, error } = await supabase.rpc("member_count");
-      if (error) throw error;
-      return data as number;
-    },
-  });
-
   return (
     <div className="min-h-screen bg-background">
       <EntryGate />
@@ -89,10 +79,7 @@ function Home() {
                 </a>
               </Button>
             </div>
-            <p className="mt-8 font-display text-2xl tracking-wide sm:text-3xl">
-              {(memberCount ?? 126).toLocaleString()}{" "}
-              <span className="text-primary">Members and Counting</span>
-            </p>
+            <MemberCounter />
           </div>
         </div>
       </section>
