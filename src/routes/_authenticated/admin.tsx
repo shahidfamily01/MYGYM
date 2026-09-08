@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
 
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -39,6 +40,9 @@ function Admin() {
     navigate({ to: "/auth", replace: true });
   }
 
+  const [tab, setTab] = useState<"male" | "female">("male");
+  const rows = data?.filter((r) => r.gender === tab) ?? [];
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border">
@@ -54,21 +58,43 @@ function Admin() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-10">
+        <div className="mb-6 flex gap-2" role="tablist" aria-label="Registration section">
+          {(
+            [
+              ["male", "Gents"],
+              ["female", "Ladies"],
+            ] as const
+          ).map(([value, label]) => (
+            <Button
+              key={value}
+              role="tab"
+              aria-selected={tab === value}
+              variant={tab === value ? "default" : "secondary"}
+              size="sm"
+              onClick={() => setTab(value)}
+            >
+              {label} ({data?.filter((r) => r.gender === value).length ?? 0})
+            </Button>
+          ))}
+        </div>
+
         {isLoading ? <p className="text-sm text-muted-foreground">Loading…</p> : null}
         {error ? (
           <p className="text-sm text-destructive">
             You don't have permission to view registrations. Ask the owner to grant admin access.
           </p>
         ) : null}
-        {data && data.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No registrations yet.</p>
+        {data && rows.length === 0 ? (
+          <p className="text-sm text-muted-foreground">
+            No {tab === "male" ? "gents" : "ladies"} registrations yet.
+          </p>
         ) : null}
-        {data && data.length > 0 ? (
+        {rows.length > 0 ? (
           <div className="surface-card overflow-x-auto rounded-sm">
             <table className="w-full text-left text-sm">
               <thead className="border-b border-border text-xs uppercase tracking-wide text-muted-foreground">
                 <tr>
-                  {["Date", "Name", "Phone", "ID", "Address", "Gender", "Plan", "Type"].map((h) => (
+                  {["Date", "Name", "Phone", "ID", "Address", "Plan", "Type"].map((h) => (
                     <th key={h} className="whitespace-nowrap px-4 py-3">
                       {h}
                     </th>
@@ -76,7 +102,7 @@ function Admin() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((r) => (
+                {rows.map((r) => (
                   <tr key={r.id} className="border-b border-border/60">
                     <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
                       {new Date(r.created_at).toLocaleDateString()}
@@ -84,10 +110,12 @@ function Admin() {
                     <td className="whitespace-nowrap px-4 py-3">{r.full_name}</td>
                     <td className="whitespace-nowrap px-4 py-3">{r.phone}</td>
                     <td className="whitespace-nowrap px-4 py-3">
-                      {r.id_number} <span className="text-muted-foreground">({r.id_type})</span>
+                      {r.id_number ? `${r.id_number} ` : "—"}
+                      {r.id_number ? (
+                        <span className="text-muted-foreground">({r.id_type})</span>
+                      ) : null}
                     </td>
-                    <td className="px-4 py-3">{r.address}</td>
-                    <td className="px-4 py-3">{r.gender}</td>
+                    <td className="px-4 py-3">{r.address || "—"}</td>
                     <td className="px-4 py-3">{r.plan ?? "—"}</td>
                     <td className="px-4 py-3">{r.kind}</td>
                   </tr>
