@@ -32,6 +32,28 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:image", content: najamUrl.startsWith("http") ? najamUrl : "" },
     ].filter((m) => !("content" in m && m.content === "")),
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ExerciseGym",
+          name: "Apex Fit Club",
+          description:
+            "Strength, cardio and CrossFit gym on Range Road, Rawalpindi with separate gents and ladies hours.",
+          telephone: "+923305966918",
+          email: "apexfitclub@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "1st Floor, Madina Tower, Near Punjab Cash & Carry, Range Road",
+            addressLocality: "Rawalpindi",
+            addressCountry: "PK",
+          },
+          openingHours: ["Mo-Su 06:00-10:00", "Mo-Su 16:00-25:00"],
+          sameAs: ["https://www.tiktok.com/@apexfitclub_official"],
+        }),
+      },
+    ],
   }),
   component: Home,
 });
