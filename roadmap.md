@@ -12,6 +12,7 @@
 - [ ] Member counter starts at 1,000, live realtime increment with animation
 - [ ] Registration form: CNIC optional
 - [ ] Admin panel: separate Gents / Ladies submissions
+- [ ] GitHub sync: explain editor Connect flow (cannot push to existing repo)
 - [ ] SEO: sitemap.xml, Local Business schema
 
 ## Waiting on client
