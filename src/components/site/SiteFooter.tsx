@@ -13,15 +13,25 @@ export function SiteFooter() {
             Najam Ali Tariq.
           </p>
           <div className="mt-5 flex gap-4 text-sm font-medium uppercase tracking-wide">
-            <a href={GYM.socials.tiktok} target="_blank" rel="noreferrer noopener" className="text-muted-foreground hover:text-primary">
-              TikTok
-            </a>
-            <a href={GYM.socials.instagram} target="_blank" rel="noreferrer noopener" className="text-muted-foreground hover:text-primary">
-              Instagram
-            </a>
-            <a href={GYM.socials.facebook} target="_blank" rel="noreferrer noopener" className="text-muted-foreground hover:text-primary">
-              Facebook
-            </a>
+            {(
+              [
+                ["TikTok", GYM.socials.tiktok],
+                ["Instagram", GYM.socials.instagram],
+                ["Facebook", GYM.socials.facebook],
+              ] as const
+            )
+              .filter(([, href]) => href)
+              .map(([label, href]) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-muted-foreground hover:text-primary"
+                >
+                  {label}
+                </a>
+              ))}
           </div>
         </div>
 
