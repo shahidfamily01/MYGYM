@@ -6,14 +6,14 @@
 - Entry gate with skip, admin sign-in + registrations panel, logo/favicon/hero
 
 ## v2 tasks
-- [ ] White glow hover/click effect on all cards and buttons
-- [ ] Entry gate: gender is the key field, CNIC optional, clear "Guest" button
-- [ ] Trainers: Najam (Owner), Adeel (Manager), Fasih (Trainer), add Arslan (no photo, avatar icon) + specialties
-- [ ] Member counter starts at 1,000, live realtime increment with animation
-- [ ] Registration form: CNIC optional
-- [ ] Admin panel: separate Gents / Ladies submissions
-- [ ] GitHub sync: explain editor Connect flow (cannot push to existing repo)
-- [ ] SEO: sitemap.xml, Local Business schema
+- [x] White glow hover/click effect on all cards and buttons
+- [x] Entry gate: gender is the key field, CNIC optional, clear "Guest" button
+- [x] Trainers: Najam (Owner), Adeel (Manager), Fasih (Trainer), add Arslan (no photo, avatar icon) + specialties
+- [x] Member counter starts at 1,000, live realtime increment with animation
+- [x] Registration form: CNIC optional
+- [x] Admin panel: separate Gents / Ladies submissions
+- [x] GitHub sync: explain editor Connect flow (cannot push to existing repo)
+- [x] SEO: sitemap.xml, Local Business schema
 
 ## Waiting on client
 - 20 unique gym interior/equipment photos for the Services gallery (not received yet)
