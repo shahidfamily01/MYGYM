@@ -15,7 +15,23 @@
 - [x] GitHub sync: explain editor Connect flow (cannot push to existing repo)
 - [x] SEO: sitemap.xml, Local Business schema
 
+## Current website update
+- [ ] Replace header logo image with text-only APEX FIT CLUB branding
+- [ ] Reorder homepage: timing strip, pricing, services, trainer/join form
+- [ ] Update exact location address and map
+- [ ] Rename Adeel to Adil and update all male trainer specialties
+- [ ] Add Shehzadi Wafa Waqar with photo and certificate details to Ladies experience
+- [ ] Use uploaded male photo for Fasih
+- [ ] Apply gender-specific trainers and timings after selection
+- [ ] Replace live member counter with static 2500+ Members
+- [ ] Send completed registration details to Najam through a pre-filled WhatsApp chat
+- [ ] Ensure trainer contact buttons use each trainer's own WhatsApp number
+- [ ] Add official Instagram link sitewide
+- [ ] Add public reviews with owner approval before publishing
+- [ ] Add uploaded unique gym photos to What We Offer, matched to services
+
 ## Waiting on client
-- 20 unique gym interior/equipment photos for the Services gallery (not received yet)
-- Official Instagram and Facebook page URLs
+- Shehzadi Wafa Waqar's WhatsApp number (profile will show without chat button until supplied)
+- WhatsApp Business API credentials only if fully automatic background sending is required
+- Official Facebook page URL
 - API access for live auto-pulling of TikTok / Instagram / Facebook posts
