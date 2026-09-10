@@ -146,7 +146,9 @@ export function ReviewsBlock() {
   ].filter((i) => i.href);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
+      <ReviewsSection />
+
       <div className="grid gap-4 sm:grid-cols-3">
         {items.map((i) => (
           <a
