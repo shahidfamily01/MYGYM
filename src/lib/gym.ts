@@ -1,20 +1,38 @@
-import najamAsset from "@/assets/najam.png.asset.json";
-import adeelAsset from "@/assets/adeel.png.asset.json";
-import fasihAsset from "@/assets/fasih-new.png.asset.json";
-import shehzadiAsset from "@/assets/shehzadi.jpg.asset.json";
+const imageUrls = {
+  logo: "/favicon.png",
+  hero: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85",
+  trainerOne:
+    "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=85",
+  trainerTwo:
+    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=85",
+  trainerThree:
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85",
+  trainerLadies:
+    "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=85",
+  cardioTreadmills:
+    "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1200&q=85",
+  cableTraining:
+    "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1200&q=85",
+  strengthFloor:
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85",
+  boxingZone:
+    "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=85",
+  cardioZone:
+    "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1200&q=85",
+  spinBikes:
+    "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?auto=format&fit=crop&w=1200&q=85",
+  cyclingStudio:
+    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=85",
+  strengthMachine:
+    "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=85",
+  memberLockers:
+    "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=1200&q=85",
+  nutritionShelf:
+    "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=85",
+} as const;
 
-import cardioTreadmills from "@/assets/gallery/cardio-treadmills.jpg.asset.json";
-import cableTraining from "@/assets/gallery/cable-training.jpg.asset.json";
-import strengthFloor from "@/assets/gallery/strength-floor.jpg.asset.json";
-import boxingZone from "@/assets/gallery/boxing-zone.jpg.asset.json";
-import cardioZone from "@/assets/gallery/cardio-zone.jpg.asset.json";
-import spinBikes from "@/assets/gallery/spin-bikes.jpg.asset.json";
-import cyclingStudio from "@/assets/gallery/cycling-studio.jpg.asset.json";
-import strengthMachine from "@/assets/gallery/strength-machine.jpg.asset.json";
-import memberLockers from "@/assets/gallery/member-lockers.jpg.asset.json";
-import nutritionShelf from "@/assets/gallery/nutrition-shelf.jpg.asset.json";
-
-export const najamUrl = najamAsset.url;
+export const najamUrl = imageUrls.hero;
+export const logoUrl = imageUrls.logo;
 
 export const MEMBER_STAT = "2500+";
 
@@ -44,52 +62,52 @@ export const services = [
   {
     title: "Personal Training",
     desc: "One-on-one coaching built around your goals and schedule.",
-    photo: strengthFloor.url,
+    photo: imageUrls.strengthFloor,
   },
   {
     title: "Group Fitness Classes",
     desc: "High-energy sessions that keep the whole floor moving.",
-    photo: cyclingStudio.url,
+    photo: imageUrls.cyclingStudio,
   },
   {
     title: "Cardio & CrossFit",
     desc: "Conditioning circuits, treadmills, rowers and functional rigs.",
-    photo: cardioTreadmills.url,
+    photo: imageUrls.cardioTreadmills,
   },
   {
     title: "Strength & Machines",
     desc: "Full cable stations, plate machines and a loaded free-weight floor.",
-    photo: cableTraining.url,
+    photo: imageUrls.cableTraining,
   },
   {
     title: "Boxing & Kickboxing",
     desc: "Bag work, pad rounds and conditioning on the turf zone.",
-    photo: boxingZone.url,
+    photo: imageUrls.boxingZone,
   },
   {
     title: "Spin & Cycling",
     desc: "Indoor cycling bikes for fat loss and endurance sessions.",
-    photo: spinBikes.url,
+    photo: imageUrls.spinBikes,
   },
   {
     title: "Nutritional Counseling",
     desc: "Diet plans matched to your training block and budget.",
-    photo: nutritionShelf.url,
+    photo: imageUrls.nutritionShelf,
   },
   {
     title: "Locker Rooms",
     desc: "Clean, secure changing area and lockers for every member.",
-    photo: memberLockers.url,
+    photo: imageUrls.memberLockers,
   },
   {
     title: "Cardio Zone",
     desc: "Treadmills, ellipticals and steady-state cardio equipment.",
-    photo: cardioZone.url,
+    photo: imageUrls.cardioZone,
   },
   {
     title: "Physiotherapy & Recovery",
     desc: "Injury screening, recovery work and mobility support.",
-    photo: strengthMachine.url,
+    photo: imageUrls.strengthMachine,
   },
 ] as const;
 
@@ -115,7 +133,7 @@ export const trainers: Trainer[] = [
     bio: "Founder of Apex Fit Club. Builds complete transformation plans — strength, conditioning and full body building coaching.",
     whatsapp: "923305966918",
     phoneDisplay: "0330-5966918",
-    photo: najamAsset.url,
+    photo: imageUrls.trainerOne,
     owner: true,
   },
   {
@@ -135,7 +153,7 @@ export const trainers: Trainer[] = [
     bio: "Manages the training floor and coaches boxing, kickboxing, CrossFit and conditioning alongside strength programming.",
     whatsapp: "923335210375",
     phoneDisplay: "0333-5210375",
-    photo: adeelAsset.url,
+    photo: imageUrls.trainerTwo,
     owner: false,
   },
   {
@@ -146,7 +164,7 @@ export const trainers: Trainer[] = [
     bio: "Floor trainer working one-on-one with members on technique, routine planning and steady progress.",
     whatsapp: "923224052167",
     phoneDisplay: "0322-4052167",
-    photo: fasihAsset.url,
+    photo: imageUrls.trainerThree,
     owner: false,
   },
   {
@@ -176,7 +194,7 @@ export const ladiesTrainers: Trainer[] = [
     bio: "Ladies-only master trainer coaching strength, cardio, nutrition and rehabilitation in our private women's hours.",
     whatsapp: "923110091690",
     phoneDisplay: "0311-0091690",
-    photo: shehzadiAsset.url,
+    photo: imageUrls.trainerLadies,
     owner: false,
   },
 ];
