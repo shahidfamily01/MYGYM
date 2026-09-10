@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { logoUrl } from "@/lib/gym";
+
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -48,7 +48,9 @@ function Admin() {
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <img src={logoUrl} alt="Apex Fit Club logo" className="h-10 w-10 object-contain" />
+            <span className="display text-base font-black uppercase tracking-[0.18em] text-primary">
+              Apex Fit Club
+            </span>
             <h1 className="text-lg leading-none">Registrations</h1>
           </div>
           <Button variant="secondary" size="sm" onClick={signOut}>

@@ -1,13 +1,15 @@
 import { Mail, MapPin, MessageCircle } from "lucide-react";
 
-import { GYM, logoUrl, mapEmbedSrc, waLink } from "@/lib/gym";
+import { GYM, mapEmbedSrc, waLink } from "@/lib/gym";
 
 export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-border bg-card">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3">
         <div>
-          <img src={logoUrl} alt={`${GYM.name} logo`} className="h-16 w-16 object-contain" />
+          <p className="display text-2xl font-black uppercase leading-none tracking-[0.18em]">
+            Apex <span className="text-primary">Fit Club</span>
+          </p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Rawalpindi's training floor for strength, cardio and conditioning. Owned &amp; led by
             Najam Ali Tariq.

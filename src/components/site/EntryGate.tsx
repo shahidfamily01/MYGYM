@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { logoUrl } from "@/lib/gym";
+
 
 const STORAGE_KEY = "apex-gate-done";
 
@@ -93,7 +93,9 @@ export function EntryGate() {
     <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-background/95 px-4 py-8 backdrop-blur">
       <div className="surface-card w-full max-w-lg rounded-sm p-6 sm:p-8">
         <div className="flex items-center gap-3">
-          <img src={logoUrl} alt="Apex Fit Club logo" className="h-12 w-12 object-contain" />
+          <span className="display text-lg font-black uppercase tracking-[0.18em] text-primary">
+            AFC
+          </span>
           <div>
             <h2 className="text-xl leading-none">Welcome to Apex Fit Club</h2>
             <p className="mt-1 text-xs text-muted-foreground">

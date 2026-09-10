@@ -1,12 +1,4 @@
-import {
-  Apple,
-  Dumbbell,
-  HeartPulse,
-  Lock,
-  Stethoscope,
-  Users,
-  Flower2,
-} from "lucide-react";
+import { Clock } from "lucide-react";
 
 import {
   GYM,
@@ -18,22 +10,51 @@ import {
   timings,
 } from "@/lib/gym";
 import { Button } from "@/components/ui/button";
-
-const icons = [Dumbbell, Users, HeartPulse, Apple, Lock, Stethoscope, Flower2];
+import { ReviewsSection } from "@/components/site/ReviewsSection";
 
 export function ServicesGrid() {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((s, i) => {
-        const Icon = icons[i] ?? Dumbbell;
-        return (
-          <article key={s.title} className="surface-card rounded-sm p-6">
-            <Icon className="h-7 w-7 text-primary" aria-hidden />
-            <h3 className="mt-4 text-lg leading-tight">{s.title}</h3>
+      {services.map((s) => (
+        <article key={s.title} className="surface-card glow-hover overflow-hidden rounded-sm">
+          <img
+            src={s.photo}
+            alt={`${s.title} at Apex Fit Club, Rawalpindi`}
+            className="h-52 w-full object-cover"
+            loading="lazy"
+          />
+          <div className="p-6">
+            <h3 className="text-lg leading-tight">{s.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-          </article>
-        );
-      })}
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+export function TimingBar({ scope = "both" }: { scope?: "both" | "ladies" }) {
+  const rows =
+    scope === "ladies"
+      ? ([["Ladies", timings.ladies]] as const)
+      : ([
+          ["Gents", timings.gents],
+          ["Ladies", timings.ladies],
+        ] as const);
+
+  return (
+    <div className="border-y border-border bg-card">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-10 gap-y-3 px-4 py-4">
+        <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-primary">
+          <Clock className="h-4 w-4" aria-hidden /> Timings
+        </span>
+        {rows.map(([label, times]) => (
+          <span key={label} className="text-sm text-muted-foreground">
+            <span className="font-semibold uppercase tracking-wide text-foreground">{label}:</span>{" "}
+            {times.join("  •  ")}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -125,7 +146,9 @@ export function ReviewsBlock() {
   ].filter((i) => i.href);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
+      <ReviewsSection />
+
       <div className="grid gap-4 sm:grid-cols-3">
         {items.map((i) => (
           <a
