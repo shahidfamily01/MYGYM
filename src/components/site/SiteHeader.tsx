@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-import { logoUrl, GYM } from "@/lib/gym";
+
 import { Button } from "@/components/ui/button";
 
 const links = [
@@ -25,8 +25,9 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logoUrl} alt={`${GYM.name} logo`} className="h-11 w-11 object-contain" />
-          <span className="display text-lg leading-none tracking-wide">Apex Fit Club</span>
+          <span className="display text-xl font-black uppercase leading-none tracking-[0.18em] text-foreground">
+            Apex <span className="text-primary">Fit Club</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-5 lg:flex">

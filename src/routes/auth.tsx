@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { logoUrl } from "@/lib/gym";
+
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -57,7 +57,9 @@ function AuthPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="surface-card w-full max-w-md rounded-sm p-8">
-        <img src={logoUrl} alt="Apex Fit Club logo" className="mx-auto h-16 w-16 object-contain" />
+        <p className="display text-center text-2xl font-black uppercase tracking-[0.2em] text-primary">
+          Apex Fit Club
+        </p>
         <h1 className="mt-6 text-center text-2xl">Admin Access</h1>
         <p className="mt-2 text-center text-sm text-muted-foreground">
           Registrations are visible only to the gym owner.
